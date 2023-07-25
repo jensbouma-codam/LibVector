@@ -8,6 +8,7 @@ BUILD	=	./build
 
 
 SRC		= 	vector.c		\
+			vector_mem.c	\
 	  		vector_get.c	\
 			vector_set.c	\
 

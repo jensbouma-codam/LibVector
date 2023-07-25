@@ -6,7 +6,7 @@
 /*   By: jensbouma <jensbouma@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/21 00:35:36 by jensbouma     #+#    #+#                 */
-/*   Updated: 2023/07/24 19:24:22 by jensbouma     ########   odam.nl         */
+/*   Updated: 2023/07/25 21:34:07 by jensbouma     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	v_resize(t_v *v, int capicity)
 
 	if (v)
 	{
-		items = realloc(v->vector.items, sizeof(void *) * capicity);
+		items = ft_realloc(v->vector.items, sizeof(void *) * capicity);
 		if (items)
 		{
 			v->vector.items = items;

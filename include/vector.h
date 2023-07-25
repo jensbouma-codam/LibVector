@@ -6,7 +6,7 @@
 /*   By: jensbouma <jensbouma@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/22 11:19:15 by jensbouma     #+#    #+#                 */
-/*   Updated: 2023/07/24 19:28:49 by jensbouma     ########   odam.nl         */
+/*   Updated: 2023/07/25 21:34:35 by jensbouma     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,6 @@ int		v_set(t_v *v, int index, void *data);
 void	*v_get(t_v *v, int index);
 int		v_del(t_v *v, int index);
 int		v_free(void *ptr);
+void	*ft_realloc(void *ptr, size_t size);
 
 #endif
