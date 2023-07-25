@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   vectors.c                                          :+:    :+:            */
+/*   vector.c                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jensbouma <jensbouma@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/21 00:35:36 by jensbouma     #+#    #+#                 */
-/*   Updated: 2023/07/22 11:25:20 by jensbouma     ########   odam.nl         */
+/*   Updated: 2023/07/24 19:24:22 by jensbouma     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
 
-void	v_init(t_v *v, size_t size, int (*free)(void *), t_v *parent)
+int	v_init(t_v *v, size_t size, int (*free)(void *), t_v *parent)
 {
 	v->size = v_size;
 	v->resize = v_resize;
@@ -24,9 +24,13 @@ void	v_init(t_v *v, size_t size, int (*free)(void *), t_v *parent)
 	v->vector.capicity = INIT_CAPACITY;
 	v->vector.total = 0;
 	v->vector.items = malloc(size * v->vector.capicity);
+	if (v->vector.items == NULL)
+		return (FAILURE);
 	v->vector.free = free;
 	if (parent)
-		parent->add(parent, (void *)v);
+		if (parent->add(parent, (void *)v) == FAILURE)
+			return (FAILURE);
+	return (SUCCESS);
 }
 
 int	v_resize(t_v *v, int capicity)

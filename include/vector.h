@@ -6,7 +6,7 @@
 /*   By: jensbouma <jensbouma@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/22 11:19:15 by jensbouma     #+#    #+#                 */
-/*   Updated: 2023/07/22 11:27:18 by jensbouma     ########   odam.nl         */
+/*   Updated: 2023/07/24 19:28:49 by jensbouma     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define VECTOR_H
 
 # define INIT_CAPACITY	6
-# define SUCCESS			1
-# define FAILURE			-1
+# define SUCCESS		1
+# define FAILURE		0
 
 # include <unistd.h>
 # include <stdio.h>
@@ -48,7 +48,7 @@ typedef struct s_test
 	char	*test;
 }	t_test;
 
-void	v_init(t_v *v, size_t size, int (*free)(void *), t_v *parent);
+int		v_init(t_v *v, size_t size, int (*free)(void *), t_v *parent);
 int		v_size(t_v *v);
 int		v_resize(t_v *v, int capicity);
 int		v_add(t_v *v, void *item);
