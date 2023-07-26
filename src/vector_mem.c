@@ -6,7 +6,7 @@
 /*   By: jensbouma <jensbouma@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/25 21:31:33 by jensbouma     #+#    #+#                 */
-/*   Updated: 2023/07/25 21:34:27 by jensbouma     ########   odam.nl         */
+/*   Updated: 2023/07/26 19:40:00 by jbouma        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	*ft_memcpy(void *dst, const void *src, size_t n)
 	{
 		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
 		i++;
-	}	
+	}
 	return (dst);
 }
 

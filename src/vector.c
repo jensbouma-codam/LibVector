@@ -6,7 +6,7 @@
 /*   By: jensbouma <jensbouma@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/21 00:35:36 by jensbouma     #+#    #+#                 */
-/*   Updated: 2023/07/25 21:34:07 by jensbouma     ########   odam.nl         */
+/*   Updated: 2023/07/26 19:39:35 by jbouma        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	v_resize(t_v *v, int capicity)
 			v->vector.items = items;
 			v->vector.capicity = capicity;
 			return (SUCCESS);
-		}	
+		}
 	}
 	return (FAILURE);
 }
