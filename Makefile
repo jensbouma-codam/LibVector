@@ -1,27 +1,44 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: jensbouma <jensbouma@student.codam.nl>       +#+                      #
+#                                                    +#+                       #
+#    Created: 2023/07/27 02:52:10 by jensbouma     #+#    #+#                  #
+#    Updated: 2023/07/27 02:55:43 by jensbouma     ########   odam.nl          #
+#                                                                              #
+# **************************************************************************** #
+
+# Libary name
 NAME	= libvector.a
-GCC 	:= gcc
-CFLAGS	:= -Wall -Werror -Wextra
 
-INCLUDE	=	-I ./include
-SRCDIR	=	./src
-BUILD	=	./build
-
-
+# Sources
 SRC		= 	vector.c		\
 			vector_mem.c	\
 	  		vector_get.c	\
 			vector_set.c	\
 
+# Set directories
+SRCDIR	=	./src
+BUILD	=	./build
+
+# Compiler settings
+GCC 	:= gcc
+CFLAGS	:= -Wall -Werror -Wextra
+
+#Dynamic files
 SOURCES	=	$(addprefix $(SRCDIR)/, $(SRC))
 OBJECTS = 	$(addprefix $(BUILD)/, $(SRC:.c=.o))
 
+INCLUDE	=	-I ./include
+
 all: $(NAME)
-	@printf "\033[32m[ ✔ ] %s\n\033[0m" "Compiled $^"
-	@make norm 2> /dev/null && printf "\033[32m[ ✔ ] %s\n\033[0m" "Norm OK" && printf "\n🙏 \033[32mComplete\033[0m\n" || "\033[31m[ ✘ ] %s\n\033[0m" "Norm KO"
+	@make norm 2> /dev/null && printf "\n🙏 $(GREEN)All Done $(RESET)\n" || printf "\n$(RED)Norminette KO$(RESET)"
 
 $(NAME): $(OBJECTS)
 	@ar rc $(NAME) $^
-
+	@printf "\033[32m[ ✔ ] %s\n\033[0m" "Compiled $@"
 
 $(BUILD)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(BUILD)
@@ -29,11 +46,7 @@ $(BUILD)/%.o: $(SRCDIR)/%.c
 	@printf "\033[0m[ ✔ ] %s\n\033[0m" "$<"
 
 norm: $(SOURCES)
-ifneq ($(UNAME_S),Linux)
 	@norminette -R CheckForbiddenSourceHeader $^ include 2>&1 > /dev/null && exit 0 || exit 1
-else
-	@echo "Norminette not available on this machine" && exit 0
-endif
 
 clean:
 	@rm -f $(NAME)
