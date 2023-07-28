@@ -6,7 +6,7 @@
 #    By: jensbouma <jensbouma@student.codam.nl>       +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/27 02:52:10 by jensbouma     #+#    #+#                  #
-#    Updated: 2023/07/27 02:55:43 by jensbouma     ########   odam.nl          #
+#    Updated: 2023/07/28 11:36:33 by jensbouma     ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ OBJECTS = 	$(addprefix $(BUILD)/, $(SRC:.c=.o))
 INCLUDE	=	-I ./include
 
 all: $(NAME)
-	@make norm 2> /dev/null && printf "\n🙏 $(GREEN)All Done $(RESET)\n" || printf "\n$(RED)Norminette KO$(RESET)"
+	@make norm 2> /dev/null && printf "\n🙏 $(GREEN)All Done$(RESET)\n" || (printf "\n$(RED)Norminette KO$(RESET)\n" && exit 1)
 
 $(NAME): $(OBJECTS)
 	@ar rc $(NAME) $^
