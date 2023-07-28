@@ -6,7 +6,7 @@
 /*   By: jensbouma <jensbouma@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/22 11:19:15 by jensbouma     #+#    #+#                 */
-/*   Updated: 2023/07/25 21:34:35 by jensbouma     ########   odam.nl         */
+/*   Updated: 2023/07/28 11:02:55 by jensbouma     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # define FAILURE		0
 
 # include <unistd.h>
-# include <stdio.h>
 # include <stdlib.h>
 
 typedef struct s_v	t_v;
